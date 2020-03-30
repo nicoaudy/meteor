@@ -1,5 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import { LinksCollection } from "/imports/api/links";
+import { CounterCollection } from "/imports/api/counters";
 
 function insertLink({ title, url }) {
 	LinksCollection.insert({ title, url, createdAt: new Date() });
@@ -7,6 +8,14 @@ function insertLink({ title, url }) {
 
 Meteor.startup(() => {
 	// If the Links collection is empty, add some data.
+	if (CounterCollection.find().count() === 0) {
+		CounterCollection.insert({
+			name: "counter",
+			value: 0,
+			createdAt: new Date()
+		});
+	}
+
 	if (LinksCollection.find().count() === 0) {
 		insertLink({
 			title: "Do the Tutorial",
