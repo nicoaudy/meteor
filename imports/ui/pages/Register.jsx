@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
-import { Meteor } from "meteor/meteor";
 import { Link, useHistory, useLocation } from "react-router-dom";
+import { Accounts } from "meteor/accounts-base";
 
 const INITIAL_STATE = {
 	email: "",
@@ -14,7 +14,7 @@ function reducer(state, { field, value }) {
 	};
 }
 
-export default function Login() {
+export default function Register() {
 	let history = useHistory();
 	let location = useLocation();
 	let { from } = location.state || { from: { pathname: "/" } };
@@ -26,9 +26,13 @@ export default function Login() {
 		dispatch({ field: e.target.name, value: e.target.value });
 	}
 
-	function doLogin() {
-		Meteor.loginWithPassword(email, password, err => {
-			console.log(err);
+	function doRegister() {
+		Accounts.createUser({ email, username: email, password }, err => {
+			if (err) {
+				console.log(err);
+			} else {
+				history.push(from);
+			}
 		});
 	}
 
@@ -38,8 +42,8 @@ export default function Login() {
 			<input type="text" name="email" value={email} onChange={onChange} />
 			<input type="text" name="password" value={password} onChange={onChange} />
 
-			<button onClick={doLogin}>Log in</button>
-			<Link to="/signup">Register</Link>
+			<button onClick={doRegister}>Register</button>
+			<Link to="/signin">Login</Link>
 		</div>
 	);
 }

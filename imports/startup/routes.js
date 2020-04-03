@@ -8,7 +8,7 @@ import {
 	Route,
 	Redirect
 } from "react-router-dom";
-import { Login, Welcome, Counter } from "../ui/pages";
+import { Login, Welcome, Counter, Register } from "../ui/pages";
 
 const useAccount = () =>
 	useTracker(() => {
@@ -48,6 +48,9 @@ export const Routes = () => {
 			<Switch>
 				<Route path="/signin">
 					<Login />
+				</Route>
+				<Route path="/signup">
+					<Register />
 				</Route>
 				<PrivateRoute path="/counter">
 					<Counter />
