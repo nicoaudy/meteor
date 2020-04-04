@@ -1,3 +1,4 @@
 import { Input } from "./commons/Input";
+import { Navbar } from "./Navbar";
 
-export { Input };
+export { Input, Navbar };

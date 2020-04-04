@@ -1,25 +1,12 @@
 import React from "react";
-
-import { Meteor } from "meteor/meteor";
-import { useTracker } from "meteor/react-meteor-data";
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
 	Redirect
 } from "react-router-dom";
+import { useAccount } from "../hooks/useAccount";
 import { Login, Welcome, Counter, Register } from "../ui/pages";
-
-const useAccount = () =>
-	useTracker(() => {
-		const user = Meteor.user();
-		const userId = Meteor.userId();
-		return {
-			user,
-			userId,
-			isLoggedIn: !!userId
-		};
-	}, []);
 
 function PrivateRoute({ children, ...rest }) {
 	const { isLoggedIn } = useAccount();

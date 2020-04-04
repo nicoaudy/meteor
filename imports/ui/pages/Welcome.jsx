@@ -1,11 +1,17 @@
 import React from "react";
+import { Meteor } from "meteor/meteor";
 import { Link } from "react-router-dom";
+import { Navbar } from "../components";
+import { useAccount } from "../../hooks/useAccount";
 
-export default Welcome = () => (
-	<>
-		<h3>Welcome Home</h3>
-		<Link to="/counter">Counter</Link> <br />
-		<Link to="/signin">Login</Link>
-		<Link to="/signup">Register</Link>
-	</>
-);
+export default Welcome = () => {
+	const { user, isLoggedIn } = useAccount();
+	console.log(user);
+
+	return (
+		<>
+			<Navbar />
+			<h3>Welcome Home</h3>
+		</>
+	);
+};

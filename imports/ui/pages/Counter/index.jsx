@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useTracker } from "meteor/react-meteor-data";
-import { CounterCollection } from "../../api/counters";
+import { CounterCollection } from "../../../api/counters";
+import { Navbar } from "../../components";
 
 export default Counter = () => {
 	const counter = useTracker(() => {
@@ -25,8 +25,7 @@ export default Counter = () => {
 
 	return (
 		<div>
-			<Link to="/">Home</Link> <br />
-			<Link to="/login">Login</Link> <br />
+			<Navbar />
 			<button onClick={increment}>Increment</button>
 			<button onClick={decrement}>Decrement</button>
 			<p>You've pressed the button {counter.value} times.</p>

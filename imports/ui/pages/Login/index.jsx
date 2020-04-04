@@ -4,7 +4,7 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 
 import { Formik, Form } from "formik";
 import { validationSchema } from "./validation";
-import { Input } from "../../components";
+import { Navbar, Input } from "../../components";
 
 export default function Login() {
 	let history = useHistory();
@@ -23,6 +23,7 @@ export default function Login() {
 
 	return (
 		<>
+			<Navbar />
 			<p>You must log in to view the page at {from.pathname}</p>
 			<Link to="/signup">Register</Link>
 			<h1>Login</h1>
