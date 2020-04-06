@@ -29,7 +29,7 @@ function PrivateRoute({ children, ...rest }) {
 	);
 }
 
-export const Routes = () => {
+const Routes = () => {
 	return (
 		<Router>
 			<Switch>
@@ -49,3 +49,5 @@ export const Routes = () => {
 		</Router>
 	);
 };
+
+export default Routes;
