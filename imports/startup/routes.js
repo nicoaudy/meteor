@@ -5,7 +5,7 @@ import {
 	Route,
 	Redirect
 } from "react-router-dom";
-import { useAccount } from "../hooks/useAccount";
+import { useAccount } from "../hooks";
 import { Login, Welcome, Counter, Register } from "../ui/pages";
 
 function PrivateRoute({ children, ...rest }) {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Meteor } from "meteor/meteor";
 import { Link } from "react-router-dom";
-import { useAccount } from "../../hooks/useAccount";
+import { useAccount } from "../../hooks";
 
 export const Navbar = () => {
 	const { isLoggedIn } = useAccount();
