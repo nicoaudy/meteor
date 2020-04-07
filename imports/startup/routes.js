@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { useAccount } from "../hooks";
 import { Login, Welcome, Counter, Register } from "../ui/pages";
+import { Navbar } from "../ui/components/Navbar";
 
 function PrivateRoute({ children, ...rest }) {
 	const { isLoggedIn } = useAccount();
@@ -32,6 +33,7 @@ function PrivateRoute({ children, ...rest }) {
 const Routes = () => {
 	return (
 		<Router>
+			<Navbar />
 			<Switch>
 				<Route path="/signin">
 					<Login />
