@@ -1,9 +1,11 @@
 import React from "react";
-import { Field } from "formik";
+import { Field, ErrorMessage } from "formik";
+
+const Error = ({ children }) => <div style={{ color: "red" }}>{children}</div>;
 
 export const Input = ({ name, errors, touched, ...rest }) => (
 	<>
 		<Field name={name} {...rest} />
-		{errors[name] && touched[name] ? <div>{errors[name]}</div> : null}
+		<ErrorMessage name={name} component={Error} />
 	</>
 );
