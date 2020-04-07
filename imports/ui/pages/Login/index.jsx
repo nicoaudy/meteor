@@ -4,7 +4,7 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 
 import { Formik, Form } from "formik";
 import { validationSchema } from "./validation";
-import { Input } from "../../components";
+import { Container, Input } from "../../components";
 
 export default function Login() {
 	let history = useHistory();
@@ -22,7 +22,7 @@ export default function Login() {
 	}
 
 	return (
-		<>
+		<Container>
 			<p>You must log in to view the page at {from.pathname}</p>
 			<Link to="/signup">Register</Link>
 			<h1>Login</h1>
@@ -47,6 +47,6 @@ export default function Login() {
 					</Form>
 				)}
 			</Formik>
-		</>
+		</Container>
 	);
 }

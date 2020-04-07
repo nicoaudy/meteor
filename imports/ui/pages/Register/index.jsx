@@ -3,7 +3,7 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import { Accounts } from "meteor/accounts-base";
 import { Formik, Form } from "formik";
 
-import { Input } from "../../components";
+import { Input, Container } from "../../components";
 import { validation } from "./validation";
 
 export default function Register() {
@@ -22,7 +22,7 @@ export default function Register() {
 	}
 
 	return (
-		<>
+		<Container>
 			<p>You must log in to view the page at {from.pathname}</p>
 			<Link to="/signin">Login</Link>
 			<Formik
@@ -46,6 +46,6 @@ export default function Register() {
 					</Form>
 				)}
 			</Formik>
-		</>
+		</Container>
 	);
 }
