@@ -4,7 +4,6 @@ import { CounterCollection } from "../../../api/counters";
 
 export default Counter = () => {
 	const counter = useTracker(() => {
-		console.log(CounterCollection.findOne());
 		return CounterCollection.findOne();
 	});
 
